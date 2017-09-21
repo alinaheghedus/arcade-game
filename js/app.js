@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-var Enemy = function (x, y, sprite) {
+var Enemy = function (x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     // The image/sprite for our enemies, this uses
@@ -7,6 +7,7 @@ var Enemy = function (x, y, sprite) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
+    this.speed = speed;
 };
 
 // Update the enemy's position, required method for game
@@ -16,6 +17,11 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     dt = 20;
+     if(this.x >= 500) {
+        this.x = 0;
+    }
+
+    this.x += this.speed;
 };
 
 // Draw the enemy on the screen, required method for game
@@ -31,15 +37,18 @@ Enemy.prototype.render = function() {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var enemy1 = new Enemy (10, 60);
-var enemy2 = new Enemy (10, 125);
-var enemy3 = new Enemy (10, 240);
+var enemy1 = new Enemy (10, 60, 7);
+var enemy2 = new Enemy (10, 145, 4);
+var enemy3 = new Enemy (10, 240, 3);
 
 var allEnemies = [enemy1, enemy2, enemy3];
-var Player = function (x, y, sprite) {
-    this.sprite = 'images/char-boy.png';
+
+
+var Player = function (x, y, speed) {
+    this.sprite = 'images/char-princess-girl.png';
     this.x = x;
     this.y = y;
+    this.speed = speed;
 }
 
 // Update the player's position, required method for game
