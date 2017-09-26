@@ -136,6 +136,7 @@ Player.prototype.reset = function (x,y) {
 
 // new game starts with 5 lives and 0 score
 Player.prototype.startNewGame = function() {
+    window.alert('GAME OVER!');
     this.lives = 5;
     this.score = 0;
 }
@@ -168,8 +169,8 @@ var Gem = function (x, y) {
     this.sprite = 'images/gem-orange.png';
     this.x = x;
     this.y = y;
-    this.width = 15;
-    this.height = 15;
+    this.width = 25;
+    this.height = 25;
 };
 
 // draw the gems on screen

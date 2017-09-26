@@ -1,6 +1,29 @@
-frontend-nanodegree-arcade-game
-===============================
+Classic-Arcade-Game-Frogger
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+Arcade Game Frogger 
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+
+This game consists of a player and a few enemies. The goal of the game is to make the player reach the water without colliding with enemies
+
+Steps
+
+1.download game from this link https://alinaheghedus/arcade-game
+
+2.unzip the folder
+
+3.open index.html in browser
+
+4.now u can start playing the game
+
+
+Instructions
+
+1.You can move the player left,right,bottom and up using the arrow keys
+
+2.move the player in such way that it reaches water without colliding with bugs, score will increase when the player gets gems and number of lives will increase when player gets hearts
+
+3.when it collides with bugs, score and number of lives will decrease
+
+4.when it reaches water u win the game
+
+5.when there are 0 lives, game restarts at 5 lives and 0 score
