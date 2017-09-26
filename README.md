@@ -7,7 +7,7 @@ This game consists of a player and a few enemies. The goal of the game is to mak
 
 Steps
 
-1.download game from this link https://alinaheghedus/arcade-game
+1.download game from this link https://github.com/alinaheghedus/arcade-game
 
 2.unzip the folder
 
