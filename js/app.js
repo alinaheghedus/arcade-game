@@ -73,6 +73,7 @@ Player.prototype.render = function(x, y) {
     ctx.fillText("Score: " + this.score + " Lives: " + this.lives, 15, 90);
 };
 
+
 Player.prototype.handleInput = function(direction) {
      if (direction === "up") {
         this.y -= 50;
@@ -85,6 +86,7 @@ Player.prototype.handleInput = function(direction) {
     }
 };    
 
+// check collisions
 Player.prototype.checkCollissions = function () {
     for (var i=0; i<allEnemies.length; i++) {
         if(this.x < allEnemies[i].x + allEnemies[i].width &&
@@ -96,6 +98,7 @@ Player.prototype.checkCollissions = function () {
         }
     };
 
+    // collission check between player and gem
     if(this.x < gem.x + gem.width &&
        this.x + this.width > gem.x &&
        this.y < gem.y + gem.height &&
@@ -105,18 +108,20 @@ Player.prototype.checkCollissions = function () {
         gem.vanish();
     }
 
-     if(this.x < heart.x + heart.width &&
+    // collision between player and heart
+    if(this.x < heart.x + heart.width &&
        this.x + this.width > heart.x &&
        this.y < heart.y + heart.height &&
        this.height + this.y > heart.y) {
         console.log('you got 1 heart');
 
-        heart.vanish();
+        heart.vanish(); 
     }
 
 
 };
 
+// when player loses, position, score and lives get updated
 Player.prototype.reset = function (x,y) {
     window.alert('TRY AGAIN!');
     this.x = 200;
@@ -129,11 +134,13 @@ Player.prototype.reset = function (x,y) {
     }
 }
 
+// new game starts with 5 lives and 0 score
 Player.prototype.startNewGame = function() {
     this.lives = 5;
     this.score = 0;
 }
 
+// if player wins, player's postion is updated, score and lives as well
 Player.prototype.win = function(x, y) {
     window.alert('YOU WON!');
     this.x = 200;
@@ -156,12 +163,8 @@ var allEnemies = [enemy1, enemy2, enemy3, enemy4];
 
 var player = new Player (200, 400);
 
-
+// Gem class for player to collect gems 
 var Gem = function (x, y) {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
     this.sprite = 'images/gem-orange.png';
     this.x = x;
     this.y = y;
@@ -169,19 +172,23 @@ var Gem = function (x, y) {
     this.height = 15;
 };
 
+// draw the gems on screen
 Gem.prototype.render = function(x, y) {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-
+// update gem's position and update score when gem collides with player
 Gem.prototype.vanish = function() {
    this.x = Math.floor(Math.random() * 200) + 1;
    this.y = Math.floor(Math.random() * 6) * 80;
    player.score += 50;
 }
 
+// instantiate gem 
 var gem = new Gem (200, 100);
 
+
+// new heart class for the player to collect
 var Heart = function (x, y) {
     this.sprite = 'images/heart.png';
     this.x = x;
@@ -190,17 +197,21 @@ var Heart = function (x, y) {
     this.height = 10;
 }
 
+// render the heart on the screen
 Heart.prototype.render = function() {
      ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+// update the heart's position 
+// player's lives number increases when player collides with a heart
 Heart.prototype.vanish = function() {
    this.x = Math.floor(Math.random() * 100) + 6;
    this.y = Math.floor(Math.random() * 5) * 60;
    player.lives += 1;
 }
 
-var heart = new Heart (400, 400);
+// instantiate the heart
+var heart = new Heart (400, 300);
 
 
 // This listens for key presses and sends the keys to your
