@@ -1,4 +1,4 @@
-
+'use strict';
 // Enemies our player must avoid
 var Enemy = function (x, y, speed) {
     // Variables applied to each of our instances go here,
@@ -41,7 +41,7 @@ var Player = function (x, y) {
     this.height = 75;
     this.score = 0;
     this.lives = 5;
-}
+};
 
 // Update the player's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -63,7 +63,7 @@ Player.prototype.update = function() {
     }
 
     this.checkCollissions();
-}    
+};   
 
 // Draw the player on the screen, required method for game
 Player.prototype.render = function(x, y) {
@@ -96,7 +96,7 @@ Player.prototype.checkCollissions = function () {
             console.log('collission detected');
             this.reset();
         }
-    };
+    }
 
     // collission check between player and gem
     if(this.x < gem.x + gem.width &&
@@ -130,16 +130,16 @@ Player.prototype.reset = function (x,y) {
     this.lives -= 1;
 
     if(this.lives === 0) {
-        player.startNewGame();
+        this.startNewGame();
     }
-}
+};
 
 // new game starts with 5 lives and 0 score
 Player.prototype.startNewGame = function() {
     window.alert('GAME OVER!');
     this.lives = 5;
     this.score = 0;
-}
+};
 
 // if player wins, player's postion is updated, score and lives as well
 Player.prototype.win = function(x, y) {
@@ -183,7 +183,7 @@ Gem.prototype.vanish = function() {
    this.x = Math.floor(Math.random() * 200) + 1;
    this.y = Math.floor(Math.random() * 6) * 80;
    player.score += 50;
-}
+};
 
 // instantiate gem 
 var gem = new Gem (200, 100);
@@ -196,7 +196,7 @@ var Heart = function (x, y) {
     this.y = y;
     this.width = 10;
     this.height = 10;
-}
+};
 
 // render the heart on the screen
 Heart.prototype.render = function() {
@@ -209,7 +209,7 @@ Heart.prototype.vanish = function() {
    this.x = Math.floor(Math.random() * 100) + 6;
    this.y = Math.floor(Math.random() * 5) * 60;
    player.lives += 1;
-}
+};
 
 // instantiate the heart
 var heart = new Heart (400, 300);
