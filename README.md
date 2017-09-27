@@ -7,13 +7,9 @@ This game consists of a player and a few enemies. The goal of the game is to mak
 
 Steps
 
-1.download game from this link https://alinaheghedus.github.io/arcade-game/
+1.click on link https://alinaheghedus.github.io/arcade-game/
 
-2.unzip the folder
-
-3.open index.html in browser
-
-4.now u can start playing the game
+2.now you can start playing the game
 
 
 Instructions
@@ -24,6 +20,6 @@ Instructions
 
 3.when it collides with bugs, score and number of lives will decrease
 
-4.when it reaches water u win the game
+4.when it reaches water you win the game
 
 5.when there are 0 lives, game restarts at 5 lives and 0 score
