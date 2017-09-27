@@ -191,7 +191,7 @@ var gem = new Gem (200, 100);
 
 // new heart class for the player to collect
 var Heart = function (x, y) {
-    this.sprite = 'images/heart.png';
+    this.sprite = 'images/red-heart.png';
     this.x = x;
     this.y = y;
     this.width = 10;
